@@ -9,7 +9,7 @@ import com.restfulApi.messenger.model.Profile;
 import com.restfulApi.messenger.model.Profile;
 
 public class ProfileService {
-private Map<String, Profile> profiles = DatabaseClass.getProfile();
+	private Map<String, Profile> profiles = DatabaseClass.getProfile();
 	
 	public ProfileService() {
 		profiles.put("Touqeer", new Profile(1,"touqeer","Touqeer","Ali"));

@@ -1,8 +1,11 @@
 package com.restfulApi.messenger.model;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 @XmlRootElement
@@ -11,6 +14,7 @@ public class Message {
 	private String message;
 	private Date created;
 	private String author;
+	private Map<Long,Comment> comments = new HashMap<Long,Comment>();
 	
 	public Message() {
 		
@@ -23,6 +27,25 @@ public class Message {
 		this.created = new Date();
 		this.author = author;
 	}
+	
+//	public Message(long id, String message, Date created, String author, Map<Long, Comment> comments) {
+//		super();
+//		this.id = id;
+//		this.message = message;
+//		this.created = created;
+//		this.author = author;
+//		this.comments = comments;
+//	}
+
+	@XmlTransient
+	public Map<Long, Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Map<Long, Comment> comments) {
+		this.comments = comments;
+	}
+
 	public long getId() {
 		return id;
 	}
